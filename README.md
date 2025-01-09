@@ -6,7 +6,7 @@ A modern chat application that lets you connect with friends and family.
 
 Connectify is a real-time messaging platform accessible at https://mrjam007.github.io/Connectify/
 
-![Connectify Logo](connectify/LOGO/Connectify%20LOGO.png)
+![Connectify Logo](./LOGO/Connectify%20LOGO.png)
 
 Experience seamless communication with our intuitive chat interface.
 
