@@ -9,8 +9,16 @@ import logo from '../LOGO/Connectify LOGO.png';
 import { Link } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import { NavLink } from 'react-router-dom';
+import Sidebar from './components/Sidebar';
+import { useState } from 'react';
 
 function App() {
+    const [sidebarActive, setSidebarActive] = useState(false);
+
+    const toggleSidebar = () => {
+        setSidebarActive(!sidebarActive);
+    };
+
     return (
         <Router>
             <div className="app-header">
@@ -21,13 +29,17 @@ function App() {
                     <NavLink to="/signup" activeClassName="active">Sign Up</NavLink>
                 </nav>
             </div>
-            <Switch>
-                <Route exact path="/" component={Login} />
-                <Route path="/signup" component={Signup} />
-                <Route path="/dashboard" component={Dashboard} />
-                <Route path="/profile" component={ProfileSettings} />
-                {/* Additional routes */}
-            </Switch>
+            <Sidebar className={sidebarActive ? 'active' : ''} />
+            <button className="sidebar-toggle" onClick={toggleSidebar}>☰</button>
+            <div className="app-content">
+                <Switch>
+                    <Route exact path="/" component={Login} />
+                    <Route path="/signup" component={Signup} />
+                    <Route path="/dashboard" component={Dashboard} />
+                    <Route path="/profile" component={ProfileSettings} />
+                    {/* Additional routes */}
+                </Switch>
+            </div>
         </Router>
     );
 }
