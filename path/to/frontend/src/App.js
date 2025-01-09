@@ -6,6 +6,9 @@ import Dashboard from './pages/Dashboard';
 import ProfileSettings from './components/ProfileSettings';
 import HomeButton from './components/HomeButton';
 import logo from '../LOGO/Connectify LOGO.png';
+import { Link } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import { NavLink } from 'react-router-dom';
 
 function App() {
     return (
@@ -13,6 +16,10 @@ function App() {
             <div className="app-header">
                 <HomeButton />
                 <img src={logo} alt="Connectify Logo" className="app-logo" />
+                <nav className="navigation">
+                    <NavLink exact to="/" activeClassName="active">Login</NavLink>
+                    <NavLink to="/signup" activeClassName="active">Sign Up</NavLink>
+                </nav>
             </div>
             <Switch>
                 <Route exact path="/" component={Login} />
