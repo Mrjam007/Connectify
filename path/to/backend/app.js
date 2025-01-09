@@ -6,6 +6,7 @@ const config = require('./config');
 // Import routes
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/users');
+const cors = require('cors');
 // ...
 
 const app = express();
@@ -14,6 +15,10 @@ const io = socketIo(server);
 
 // Middleware
 app.use(express.json());
+app.use(cors({
+    origin: 'https://<your-github-username>.github.io',
+    optionsSuccessStatus: 200
+}));
 
 // Routes
 app.use('/api/auth', authRoutes);
